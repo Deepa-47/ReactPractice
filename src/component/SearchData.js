@@ -1,44 +1,45 @@
 import React, { useState } from "react";
-export default function SearchData(){
+
+export default function SearchData(props){
     const [serachData, setSearchData]=useState("");
-    const data=[
-                {
-                    name: "asdfg",
-                    year: 2020,
-                    Budget: 50,
-                    Rating:5,
-                    Cast: ['adf'],
-                    Reviews:['Good'],
-                    Language:'Hindi',
-                },
-                {
-                    name: "ertyyr",
-                    year: 2019,
-                    Budget: 40,
-                    Rating:4,
-                    Cast: ['adf'],
-                    Reviews:['best'],
-                    Language:'Hindi',
-                },
-                {
-                    name: "ytuio",
-                    year: 2019,
-                    Budget: 40,
-                    Rating:4,
-                    Cast: ['adf'],
-                    Reviews:['best'],
-                    Language:'Hindi',
-                },
-                {
-                    name: "poiytyt",
-                    year: 2019,
-                    Budget: 40,
-                    Rating:4,
-                    Cast: ['adf'],
-                    Reviews:['best'],
-                    Language:'Hindi',
-                }
-            ]
+    // const data=[
+    //             {
+    //                 name: "asdfg",
+    //                 year: 2020,
+    //                 Budget: 50,
+    //                 Rating:5,
+    //                 Cast: ['adf'],
+    //                 Reviews:['Good'],
+    //                 Language:'Hindi',
+    //             },
+    //             {
+    //                 name: "ertyyr",
+    //                 year: 2019,
+    //                 Budget: 40,
+    //                 Rating:4,
+    //                 Cast: ['adf'],
+    //                 Reviews:['best'],
+    //                 Language:'Hindi',
+    //             },
+    //             {
+    //                 name: "ytuio",
+    //                 year: 2019,
+    //                 Budget: 40,
+    //                 Rating:4,
+    //                 Cast: ['adf'],
+    //                 Reviews:['best'],
+    //                 Language:'Hindi',
+    //             },
+    //             {
+    //                 name: "poiytyt",
+    //                 year: 2019,
+    //                 Budget: 40,
+    //                 Rating:4,
+    //                 Cast: ['adf'],
+    //                 Reviews:['best'],
+    //                 Language:'Hindi',
+    //             }
+    //         ]
     return(
         <>
         <div>
@@ -58,7 +59,7 @@ export default function SearchData(){
                     </tr>
                 </thead>
                 <tbody>
-                    {data.filter((value)=>{
+                    {props.tempdata.filter((value)=>{
                         if(serachData==""){
                             return value;
                         }else{

@@ -35,7 +35,7 @@ export default function TableData(){
             <input type="number" placeholder="Enter user phone" value={phone} onChange={phoneHandler}/><br/><br/>
             <input type="number" placeholder="Enter user balace" value={balance} onChange={balanceHandler}/><br/><br/>
             <button onClick={submitHandler}>Add</button>
-            <table>
+            <table border="1">
                 <tr>
                     <th>UserId</th>
                     <th>Name</th>

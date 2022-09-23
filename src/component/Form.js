@@ -15,12 +15,6 @@ export default function Form(){
     }
     const print=()=>{
         if(uid>=0){
-            // const udata=data.filter((value,index)=>{
-            //     if(index==uid)
-            //     {
-            //         return value;
-            //     }
-            // })
             const udata=[...data];
             udata[uid].sname=name;
             udata[uid].sroll=roll;
@@ -41,7 +35,7 @@ export default function Form(){
     const update=(event)=>{
         console.log(event.target.id)
         const udata=data.filter((value,index)=>{
-            if(index===event.target.id)
+            if(index !== event.target.id)
             {
                 return value;
             }
@@ -50,19 +44,21 @@ export default function Form(){
         setRoll(udata[0].sroll)
         setbuttontext("Update");
         setuid(event.target.id);
-        console.log(udata);
+        console.log([udata]);
     }
 
-    const remove=(event)=>{
-        
-        const udata=data.filter((value,index)=>{
-            if(index!=event.target.id)
-            {
-                return value;
-            }
-        })
-        console.log(udata);
-        setData(udata);
+    const remove=(index)=>{
+        const newTodo=[...data];
+        newTodo.splice(index,1);
+        setData(newTodo);
+        // const udata=data.filter((value,index)=>{
+        //     if(index !== event.target.id)
+        //     {
+        //         return value;
+        //     }
+        // })
+        // console.log(udata);
+        // setData(udata);
     }
     return(
         <>
@@ -72,9 +68,9 @@ export default function Form(){
             {data.map((value,i)=>{
                return(
                     <div key={i}>
-                         <lable>{i}-{value.sname}-{value.sroll}</lable>
-                         <button onClick={update}id={i}>Update</button>
-                         <button onClick={remove} id={i}>Delete</button>
+                         <label>{value.sname}-{value.sroll}</label>
+                         <button onClick={update} id={i}>Update</button>
+                         <button onClick={remove} >Delete</button>
                     </div>
                )
                
